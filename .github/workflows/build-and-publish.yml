@@ -1,0 +1,21 @@
+name: Build and Publish
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v2
+
+      - name: Build docker image
+        run: docker build . -t ghcr.io/garyfail/simpleapi:${{ github.sha }}
+      
