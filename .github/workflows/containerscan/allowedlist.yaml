@@ -1,0 +1,4 @@
+general:
+  vulnerabilities:
+    - CVE-2020-28928
+  bestPracticeViolations:
